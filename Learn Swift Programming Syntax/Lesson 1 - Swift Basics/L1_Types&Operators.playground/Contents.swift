@@ -6,17 +6,34 @@ import Foundation
 //: ### Example 1: Bool, Int, Float, Double
 class LightSwitch {
     
-    var on: Bool = true
+    var on: Bool = true;
+    var dimmerInt: Int = 7;
+    var dimmerFloat: Float = 3.14;
+    var dimmerDouble: Double = 3.14159265369;
 }
 
-var livingRoomSwitch = LightSwitch()
-livingRoomSwitch.on
+var livingRoomSwitch = LightSwitch();
+livingRoomSwitch.on;
+livingRoomSwitch.dimmerInt;
+livingRoomSwitch.dimmerFloat;
+livingRoomSwitch.dimmerDouble;
+
+var onInferred = true;
+var onTyped: Bool = true;
+type(of: onInferred); // Bool.type.
+type(of: onTyped); // Bool.type.
+
+var dimmerTyped: Float = 13.75;
+var dimmerInferred = 13.75;
+type(of: dimmerTyped); // Float.type.
+type(of: dimmerInferred); // Double.type.
+
 //: ### Example 2: Strings and Characters
 var dollarSign: Character = "$"
 var myFirstSwiftString: String = "mo' money"
 var mySecondSwiftString: String = "mo' problems"
 var concatenatedString:String = myFirstSwiftString + ", " + mySecondSwiftString
-
+type(of: concatenatedString);
 //: ### Stay tuned for more on Optionals and Tuples in the upcoming lessons!
 
 //: # Operators
