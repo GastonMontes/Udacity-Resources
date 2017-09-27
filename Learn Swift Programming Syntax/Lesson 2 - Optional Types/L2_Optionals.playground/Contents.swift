@@ -50,7 +50,15 @@ var z: Int?
 var string: String
 string = "123"
 z = Int(string)
-//z * 2
+
+//z! * 2 Unsafe unwrapping.
+
+// Safe unwrapping.
+if let z = z {
+    z * 2
+} else {
+    print("No integer value")
+}
 
 // Example 2
 class AnotherViewController: UIViewController {
