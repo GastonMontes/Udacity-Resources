@@ -21,10 +21,11 @@ moreNumbers = [85.0, 90.0, 95.0]
 let differentNumbers = [97.5, 98.5, 99.0]
 
 // Array concatenation is super convenient in Swift.
-moreNumbers = moreNumbers + differentNumbers
+let allNumbers = moreNumbers + differentNumbers
 
 // An array can hold any type of object.
 var circuit = [livingRoomSwitch, kitchenSwitch, bathroomSwitch]
+
 //: ### Array operations: append, insert, remove, count, retrieve
 var roadTripMusic = ["Neil Young","Kendrick Lamar","Flo Rida", "Nirvana"]
 roadTripMusic.append("Rae Sremmurd")
@@ -33,11 +34,13 @@ roadTripMusic.remove(at: 3)
 roadTripMusic.insert("Keith Urban", at: 3)
 roadTripMusic.count
 
-let musician = roadTripMusic[2]
+let musician = roadTripMusic[5]
 
 //: ### Dictionary initialization
 // Initializer syntax
 var groupsDict = [String:String]()
+groupsDict["hola"] = "chau"
+groupsDict
 
 // Dictionary literal
 var animalGroupsDict = ["whales":"pod", "geese":"flock", "lions": "pride"]
