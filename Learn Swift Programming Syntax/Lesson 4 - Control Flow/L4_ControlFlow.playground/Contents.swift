@@ -16,10 +16,10 @@ for index in 0..<99 {
 //:     }
 
 //: ### Example 1
-//var demoString = "Swift enumeration is so fast!"
-//for character in demoString.characters {
-//    print(character)
-//}
+var demoString = "Swift enumeration is so fast!"
+for character in demoString.characters {
+    print(character)
+}
 
 //: ### Example 2
 let intArray = [7, 21, 25, 13, 1]
@@ -77,14 +77,14 @@ while beerVolume > 0 {
 //:        statement
 //:    } while condition
 
-//repeat {
-// --timer
-//} while timer > 0
-//
-//repeat {
-//    print("Cheers")
-//    beerVolume -= sip
-//} while beerVolume > 0
+repeat {
+ timer -= 1
+} while timer > 0
+
+repeat {
+    print("Cheers")
+    beerVolume -= sip
+} while beerVolume > 0
 
 //: ## IV. If-else statements
 
@@ -161,7 +161,7 @@ default:
 
 //: ### Example 2: Switches and Rainbows
 var color = ""
-var wavelength = 568
+var wavelength = 300
 
 switch wavelength {
 case 380...450:
