@@ -80,9 +80,24 @@ placeFirstLetterLast("Mom")
 //: Example 3 - filterByYear
 
 class MovieArchive {
+    func filterBy(year: Int, movies: Dictionary<String, Int>) -> [String] {
+        var filteredMovies = [String]()
+        
+        for (movieName, movieYear) in movies {
+            if movieYear == year {
+                filteredMovies.append(movieName)
+            }
+        }
+        
+        return filteredMovies
+    }
 }
 
 var aiThemedMovies = ["Metropolis":1927, "2001: A Space Odyssey":1968, "Blade Runner":1982, "War Games" : 1983, "Terminator": 1984, "The Matrix":1999, "A.I.":2001, "Her": 2013, "Ex Machina":2015]
+
+let movieArchive = MovieArchive()
+movieArchive.filterBy(year: 1982, movies: aiThemedMovies)
+movieArchive.filterBy(year: 2013, movies: aiThemedMovies)
 
 
 
