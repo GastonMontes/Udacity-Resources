@@ -13,10 +13,17 @@ struct Tail {
 class Animal {
     var species: String = ""
     let tail: Tail
+    
+    init(tailLenght: Double, species: String) {
+        self.species = species
+        self.tail = Tail(lengthInCm: tailLenght)
+    }
 }
 //: __1b.__
 //: Instantiate and initialize a few different Animals.
-
+let animal1 = Animal(tailLenght: 25, species: "dog")
+let animal2 = Animal(tailLenght: 15, species: "cat")
+let animal3 = Animal(tailLenght: 5, species: "bird")
 //: __Problem 2__
 //:
 //: Below are the beginnings of the Peach class.
@@ -26,9 +33,16 @@ class Peach {
     // Softness is rated on a scale from 1 to 5, with 5 being the softest
     var softness: Int
     
+    static var varieties = ["donut", "yellow", "white"]
+    
     init(variety: String, softness: Int) {
         self.variety = variety
         self.softness = softness
+    }
+    
+    func ripen() -> String {
+        self.softness += 1
+        return (self.softness > 4) ? "Ripe" : "Not ripe"
     }
 }
 //: __2a.__
@@ -39,7 +53,9 @@ class Peach {
 //:
 //: __2c.__
 //: Create an instance of the Peach class and call the method ripen().
-
+let peach = Peach(variety: "donut", softness: 4)
+peach.ripen()
+peach.ripen()
 //: __Problem 3__
 //:
 //: __3a.__
@@ -49,6 +65,12 @@ class FluffyDog {
     let name: String
     let fluffiness: Int
     let droolFactor: Int
+    
+    var cuddlability: Int {
+        get {
+            return self.fluffiness - self.droolFactor
+        }
+    }
     
     init(name: String, fluffiness: Int, droolFactor: Int) {
         self.name = name
@@ -62,7 +84,9 @@ class FluffyDog {
 }
 //: __3b.__
 //: Instantiate and initialize an instance of the class, FluffyDog. Use it to call the method, chase().
-
+let fDog = FluffyDog(name: "Washigton", fluffiness: 3, droolFactor: 4)
+fDog.cuddlability
+fDog.chase("Car")
 //: __Problem 4__
 //:
 //: __4a.__
@@ -83,13 +107,36 @@ class ChattyDog {
         self.breed = breed
         self.size = size
     }
+    
+    func bark() -> String {
+        switch self.size {
+        case .small:
+            return "Small"
+        case .medium:
+            return "Medium"
+        case .large:
+            return "Large"
+        }
+    }
+    
+    class func speak(_ size: Size) -> String {
+        switch size {
+        case .small:
+            return "Small"
+        case .medium:
+            return "Medium"
+        case .large:
+            return "Large"
+        }
+    }
 }
 //: __4b.__
 //: Create an instance of ChattyDog and use it to call the method, bark().
-
+let dog = ChattyDog(name: "Washigton", breed: "Cosa", size: .large)
+dog.bark()
 //: __4c.__
 //: Rewrite the method, bark(), as a type method and rename it speak(). Call your type method to test it out.
-
+ChattyDog.speak(.medium)
 //: __Problem 5__
 //:
 //:__5a.__
@@ -107,7 +154,22 @@ enum NaturalDisaster {
 class House {
     var numberOfBedrooms: Int = 0
     let location: Quality
+    var worthyOfAnOffer: Bool {
+        get {
+            switch (numberOfBedrooms, location) {
+            case (2, .excellent), (3, .good), ( 3, .excellent):
+                return true
+            default:
+                return false
+            }
+        }
+    }
  
+    init(bedrooms: Int, location: Quality) {
+        self.numberOfBedrooms = bedrooms
+        self.location = location
+    }
+    
     func willStayStanding(_ naturalDisaster:NaturalDisaster)-> Bool {
         switch naturalDisaster {
         case .earthquake:
@@ -122,7 +184,8 @@ class House {
 
 //: __5b.__
 //: Create an instance of the House class and use it to call the method, willStayStanding().  This method takes in a parameter of type NaturalDisaster and return a Bool indicating whether the house will stay standing in a given natural disaster.
-
+let house = House(bedrooms: 3, location: .good)
+house.willStayStanding(.earthquake)
 //: __5c.__
 //: Add a computed property called, "worthyOfAnOffer". This property should be a Bool, whose return value is dependent upon some combination of the stored properties, numberOfBedrooms and location.
 

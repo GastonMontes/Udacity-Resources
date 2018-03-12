@@ -35,6 +35,7 @@ class MovieArchive {
 // Scroll up to see the Movie class!
 
 var thursdayNightMovie = Movie(title:"Point Break", director:"Kathryn Bigelow", releaseYear: 1991)
+thursdayNightMovie.title
 
 //: ### Type properties & Computed Properties
 
